@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Agent Detail{% endblock %}
+
+{% block content %}
+    <h2>Agent Detail</h2>
+    <p>First Name: {{ agent.first_name }}</p>
+    <p>Last Name: {{ agent.last_name }}</p>
+    <p>Specialty: {{ agent.specialty }}</p>
+    <div>
+        <a href="{% url 'agent_update' agent.id %}" style="display: inline-block; padding: 5px 10px; background-color: #4CAF50; color: white; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; border: none;">Edit</a>
+        <a href="{% url 'agent_delete' agent.id %}" style="display: inline-block; padding: 5px 10px; background-color: #4CAF50; color: white; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; border: none;">Delete</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Agents{% endblock %}
+
+{% block content %}
+    <h2>List of Agents</h2>
+    <ul>
+        {% for agent in agents %}
+            <li>
+                {{ agent.id }} - {{ agent.first_name }} {{ agent.last_name }}
+                <div>
+                    <a href="{% url 'agent_detail' agent.id %}" style="display: inline-block; padding: 5px 10px; background-color: #4CAF50; color: white; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; border: none;">Details</a>
+                </div>
+            </li>
+        {% empty %}
+            <li>No agents found</li>
+        {% endfor %}
+    </ul>
+    <div>
+        <a href="{% url 'agent_create' %}" style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; border: none;">Create New Agent</a>
+    </div>
+{% endblock %}
