@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Agents{% endblock %}
+
+{% block content %}
+    <h2>List of Agents</h2>
+    <ul>
+        {% for agent in agents %}
+            <li>
+                {{ agent.id }} - {{ agent.first_name }} {{ agent.last_name }}
+                <div class="mybutton2">
+                    <p><a href="{% url 'agent_detail' agent.id %}">Details</a></p>
+                </div>
+            </li>
+        {% empty %}
+            <li>No agents found</li>
+        {% endfor %}
+    </ul>
+    <div class="mybutton">
+        <p><a href="{% url 'agent_create' %}">Create New Agent</a></p>
+    </div>
+{% endblock %}
